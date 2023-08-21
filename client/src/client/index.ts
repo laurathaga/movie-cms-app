@@ -18,13 +18,13 @@ const movieQL = `
 
 const client = createClient(clientConfig);
 
-export async function getMovies(): Promise<Movie | null> {
+export async function getMovies(): Promise<Movie[] | []> {
     try {
         const movies = await client.fetch(movieQL);
         return await movies;
     } catch (error) {
         console.error(error);
-        return null;
+        return [];
     }
 }
 

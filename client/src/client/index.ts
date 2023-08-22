@@ -1,5 +1,6 @@
 import { createClient, type ClientConfig } from "@sanity/client";
 import { type Movie } from "./types";
+import { movieQL } from "./queries";
 
 const clientConfig: ClientConfig = {
     projectId: import.meta.env.VITE_STUDIO_PROJECT_ID,
@@ -7,14 +8,6 @@ const clientConfig: ClientConfig = {
     useCdn: false,
     apiVersion: '2023-08-20',
 };
-
-const movieQL = `
-    *[_type == 'movie']{
-        title,
-        description,
-        poster
-    }
-`
 
 const client = createClient(clientConfig);
 

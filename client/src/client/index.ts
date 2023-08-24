@@ -1,6 +1,6 @@
 import { createClient, type ClientConfig } from "@sanity/client";
 import { type Movie } from "./types";
-import { movieQL } from "./queries";
+import movieQueries from "./queries";
 
 const clientConfig: ClientConfig = {
     projectId: import.meta.env.VITE_STUDIO_PROJECT_ID,
@@ -13,7 +13,7 @@ const client = createClient(clientConfig);
 
 export async function getMovies(): Promise<Movie[] | []> {
     try {
-        const movies = await client.fetch(movieQL);
+        const movies = await client.fetch(movieQueries.full_movieQuery);
         return await movies;
     } catch (error) {
         console.error(error);

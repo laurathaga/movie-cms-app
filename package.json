@@ -1,0 +1,21 @@
+{
+    "name": "movie-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": ".eslintrc.js",
+    "scripts": {
+        "client": "cd client && npm run dev",
+        "studio": "cd cms && npm run dev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/laurathaga/movie-cms-app.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/laurathaga/movie-cms-app/issues"
+    },
+    "homepage": "https://github.com/laurathaga/movie-cms-app#readme"
+}

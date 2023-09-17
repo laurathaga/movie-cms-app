@@ -5,7 +5,8 @@
     "main": ".eslintrc.js",
     "scripts": {
         "client": "cd client && npm run dev",
-        "studio": "cd cms && npm run dev"
+        "studio": "cd cms && npm run dev",
+        "start": ""
     },
     "repository": {
         "type": "git",

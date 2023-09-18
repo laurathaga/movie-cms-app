@@ -1,5 +1,5 @@
 import { createClient, type ClientConfig } from "@sanity/client";
-import { type Movie, TVshows } from "./types";
+import { type Movie, TVshows, QueryFunc } from "./types";
 import query from "./queries";
 
 const clientConfig: ClientConfig = {
@@ -11,22 +11,23 @@ const clientConfig: ClientConfig = {
 
 const client = createClient(clientConfig);
 
-export async function getMovies(): Promise<Movie[] | []> {
+async function getData<T>({
+    content,
+    type,
+}: QueryFunc): Promise<T[] | []> {
     try {
-        const movies = await client.fetch(query({ content: 'movie', type: 'partial' }));
-        return await movies;
+        const data = await client.fetch(query({ content, type }));
+        return data;
     } catch (error) {
         console.error(error);
         return [];
     }
 }
 
-export async function getTvShows(): Promise<TVshows[] | []> {
-    try {
-        const tvShows = await client.fetch(query({ content: 'tvshow', type: 'partial' }));
-        return await tvShows;
-    } catch (error) {
-        console.error(error);
-        return [];
-    }
+export async function getMovies() {
+    return getData<Movie>({ content: 'movie', type: 'partial' });
+}
+
+export async function getTvShows() {
+    return getData<TVshows>({ content: 'tvshow', type: 'partial' });
 }

@@ -16,7 +16,7 @@ async function getData<T>({
     type,
 }: QueryFunc): Promise<T[] | []> {
     try {
-        const data = await client.fetch(query({ content, type }));
+        const data = await client.fetch(query({ content, type }).trim());
         return data;
     } catch (error) {
         console.error(error);
@@ -24,10 +24,10 @@ async function getData<T>({
     }
 }
 
-export async function getMovies() {
+export function getMovies() {
     return getData<Movie>({ content: 'movie', type: 'partial' });
 }
 
-export async function getTvShows() {
+export function getTvShows() {
     return getData<TVshows>({ content: 'tvshow', type: 'partial' });
 }

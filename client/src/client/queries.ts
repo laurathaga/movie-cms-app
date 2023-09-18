@@ -27,7 +27,7 @@ export default ({ type, content }: QueryFunc) => {
     const projection = type === 'partial' ? partial_movie_tvshowQuery : fullQuery;
 
     return `
-        *[_type == ${content}]{
+        *[_type == "${content}"]{
             ${projection}
         }
     `;

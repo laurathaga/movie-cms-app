@@ -11,6 +11,8 @@ export default function MoviesData({ children }: PropsWithChildren) {
         API_Client
             .getMovies()
             .then(response => response.length && setData(response))
+
+        console.log(data);
     }, []);
 
     return (

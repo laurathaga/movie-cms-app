@@ -1,0 +1,26 @@
+// UTILITY CLASSES
+:root {
+    --container-width: 1440px;
+    --section-width: 80%;
+}
+
+.container {
+    width: var(--container-width);
+}
+
+.content-section {
+    width: var(--section-width);
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.left {
+    margin-right: auto;
+}
+
+.right {
+    margin-left: auto;
+}
+

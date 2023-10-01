@@ -1,5 +1,6 @@
-export default function Home() {
+export default function Home(props) {
     return (
-        <div></div>
+        <div>hello from home page</div>
     );
 }
+
